@@ -1,0 +1,57 @@
+{
+  "name": "vscode-lm-openai-gateway",
+  "displayName": "VS Code LM OpenAI Gateway",
+  "description": "Local OpenAI-compatible API (/v1/models, /v1/chat/completions) on 127.0.0.1, backed by the VS Code Language Model API (vscode.lm).",
+  "version": "0.2.0",
+  "publisher": "rakshith-ponnappa",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rakshith-ponnappa/vscode-lm-openai-gateway"
+  },
+  "bugs": {
+    "url": "https://github.com/rakshith-ponnappa/vscode-lm-openai-gateway/issues"
+  },
+  "homepage": "https://github.com/rakshith-ponnappa/vscode-lm-openai-gateway#readme",
+  "keywords": [
+    "openai",
+    "llm",
+    "language-model-api",
+    "proxy",
+    "gateway"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilotGateway.test",
+        "title": "Copilot LM Gateway: Test (grant model access)"
+      }
+    ],
+    "configuration": {
+      "title": "Copilot LM Gateway",
+      "properties": {
+        "copilotGateway.port": {
+          "type": "number",
+          "default": 8787,
+          "description": "Port on 127.0.0.1 for the OpenAI-compatible endpoint."
+        },
+        "copilotGateway.reasoningEffort": {
+          "type": "string",
+          "default": "xhigh",
+          "description": "Reasoning effort sent with every request (e.g. low, medium, high, xhigh). Empty uses the model picker setting."
+        }
+      }
+    }
+  }
+}
